@@ -8,17 +8,26 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, DTMathOps) {
+    
+    DTMathOpsDivide = 10,
+    DTMathOpsMultiply,
+    DTMathOpsSubtract,
+    DTMathOpsAdd
+    
+};
+
 @interface DTCalculator : NSObject
 
 @property (strong, nonatomic) NSString *result;
 
 @property (assign, nonatomic) double tempNumber;
-@property (assign, nonatomic) NSInteger operation;
+@property (assign, nonatomic) DTMathOps operation;
 @property (assign, nonatomic) BOOL resultSet;
 @property (assign, nonatomic) BOOL negativeSign;
 
 - (NSString *)numberToDisplay:(NSString *)buttonNumber;
-- (NSString *)performOperation:(NSInteger)operation;
+- (NSString *)performOperation:(DTMathOps)operation;
 - (NSString *)changeSign;
 - (NSString *)addDot;
 - (NSString *)clearResult;

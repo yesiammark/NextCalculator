@@ -45,27 +45,31 @@
     return self.result;
 }
 
-- (NSString *)performOperation:(NSInteger)operation {
+- (NSString *)performOperation:(DTMathOps)operation {
     
     self.result = [self.result stringByReplacingOccurrencesOfString:@"," withString:@"."];
     
     switch (self.operation) {
-        case 10:
+        case DTMathOpsDivide:
             self.tempNumber = self.tempNumber / [self.result doubleValue];
             self.result = [NSString stringWithFormat:@"%f", self.tempNumber];
             break;
-        case 11:
+            
+        case DTMathOpsMultiply:
             self.tempNumber = self.tempNumber * [self.result doubleValue];
             self.result = [NSString stringWithFormat:@"%f", self.tempNumber];
             break;
-        case 12:
+            
+        case DTMathOpsSubtract:
             self.tempNumber = self.tempNumber - [self.result doubleValue];
             self.result = [NSString stringWithFormat:@"%f", self.tempNumber];
             break;
-        case 13:
+            
+        case DTMathOpsAdd:
             self.tempNumber = self.tempNumber + [self.result doubleValue];
             self.result = [NSString stringWithFormat:@"%f", self.tempNumber];
             break;
+            
         default:
             break;
     }
